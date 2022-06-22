@@ -1,0 +1,34 @@
+ganttDiagram {
+    task {
+        'FontColor red
+        FontSize 16
+        FontStyle bold
+        BackGroundColor Azure
+        LineColor DodgerBlue
+    }
+    milestone {
+        'FontColor blue
+        FontSize 16
+        'FontStyle italic
+        BackGroundColor black
+        LineColor black
+    }
+    note {
+        FontSize 12
+    }
+    arrow {
+        LineColor black
+    }
+    separator {
+        FontSize 18
+        FontStyle bold
+        FontColor black
+    }
+    timeline {
+        BackgroundColor AntiqueWhite
+    }
+    closed {
+        BackgroundColor pink
+        FontColor red
+    }
+}

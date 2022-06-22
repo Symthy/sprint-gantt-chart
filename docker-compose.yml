@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  gantt-tmpl-builder:
+    #restart: always
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    image: "gantt-tmpl-builder"
+    container_name: "gantt-tmpl-builder"
+    working_dir: "/work"
+    volumes:
+      - type: bind
+        source: "."
+        target: "/work"
+    tty: true

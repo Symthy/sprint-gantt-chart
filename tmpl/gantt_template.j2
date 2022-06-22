@@ -1,0 +1,52 @@
+@startgantt
+language ja
+printscale daily zoom 6
+
+<style>
+{{style}}
+</style>
+
+Project starts {{ start_date }}
+saturday are closed
+sunday are closed
+{% for date in closed_dates %}
+{{ date }} is closed
+{% endfor %}
+[Sprint {{ sprint_num }}] lasts 2 weeks
+[Sprint {{ sprint_num }}] is colored in LightGreen
+'[Sprint {{ sprint_num }}] links to [[]]
+
+{% for member, tasks in member_to_tasks.items() %}-- {{member}} --{% for task_id, task_title in tasks.items() %}
+
+'Task {{ task_id }}
+[{{ task_id }}: {{ task_title }}] happens at [Sprint {{ sprint_num }}]'s start
+[{{ task_id }} 検討] lasts 2 days
+note bottom
+end note
+[{{ task_id }} 実装] lasts 3 days
+note bottom
+end note
+[{{ task_id }} 内Rv] lasts 3 days
+note bottom
+end note
+[{{ task_id }} PR] lasts 2 days
+note bottom
+end note
+[{{ task_id }} 検討] -> [{{ task_id }} 実装]
+[{{ task_id }} 実装] -> [{{ task_id }} 内Rv]
+[{{ task_id }} 内Rv] -> [{{ task_id }} PR]
+[{{ task_id }} 実装] displays on same row as [{{ task_id }} 検討]
+[{{ task_id }} PR] displays on same row as [{{ task_id }} 検討]
+[{{ task_id }} 内Rv] displays on same row as [{{ task_id }} 検討]
+
+'[{{ task_id }} 検討END] happens on
+'[{{ task_id }} 実装END] happens on
+'[{{ task_id }} 内RvEND] happens on
+'[{{ task_id }} END] happens on
+'[{{ task_id }} 実装END] displays on same row as [{{ task_id }} 検討END]
+'[{{ task_id }} 内RvEND] displays on same row as [{{ task_id }} 検討END]
+'[{{ task_id }} END] displays on same row as [{{ task_id }} 検討END]
+
+{% if not loop.last %}-- --{% endif %}{% endfor %}{% endfor %}
+
+@endgantt
