@@ -1,14 +1,8 @@
-# Scrum Gantt Chart Template Builder
+# Sprint Gantt Chart Template Builder
 
 1 Sprint (2 weeks) 分の ガントチャート(plantuml) 雛形ファイルを生成
 
 required: docker
-
-## docker build
-
-```
-./docker-build.sh
-```
 
 ## tool run
 
@@ -17,12 +11,6 @@ cp conf/members.yml.model conf/members.yml
 ```
 
 members.yml に チームメンバーの名前を箇条書き
-
-```
-./docker-run.sh
-```
-
-コンテナ内に入るため、以下実行
 
 ```
 ./run.sh <Sprint Number>
